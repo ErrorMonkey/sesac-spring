@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/introduce2" method="get" style="margin-right: 20px">
+        <h3>API-Get 실습2</h3>
+        이름: <input type="text" name="name" />
+        나이: <input type="text" name="age" />
+        <br />
+        <button type="submit">Get 전송</button>
+    </form>
+    <br />
+    <form action="/introduce1" method="get" style="margin-right: 20px">
+        <h3>API-Get 실습1</h3>
+        <label for="name">이름: </label> <input type="text" name="name" />
+        <br />
+        <button type="submit">Get 전송</button>
+    </form>
+    <br />
+
+    <form action="/post/form-test" method="post" style="margin-right: 20px">
+        <h3>API-Get 실습3</h3>
+        <label for="name">이름: </label><input type="text" id="name" name="name" />
+        <br />
+        생년월일:<input type="month" name="brith" id="birth" />
+
+        <label>성별:</label>
+        <input type="radio" name="gender" id="gender" value="male"/>남자
+        <input type="radio" name="gender" id="gender" value="female"/>여자
+
+        <select id="hobby" name="hobby">
+            <option value="sports">운동</option>
+            <option value="gaming">게임</option>
+        </select>
+        <button type="submit">회원가입</button>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<form id="signup-form" method="post">
+    <div>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="gender">성별</label>
+        <input type="radio" name="gender" value="male" id="male">
+        <label for="male">남자</label>
+        <input type="radio" name="gender" value="female" id="female">
+        <label for="female">여자</label>
+    </div>
+    <div>
+        <label for="birthdate">생년월일</label>
+        <input type="date" name="birthdate" id="birthdate">
+    </div>
+    <div>
+        <label for="interests">관심사</label>
+        <input type="checkbox" name="interests[]" value="travel" id="travel">
+        <label for="travel">여행</label>
+        <input type="checkbox" name="interests[]" value="sports" id="sports">
+        <label for="sports">운동</label>
+        <input type="checkbox" name="interests[]" value="food" id="food">
+        <label for="food">음식</label>
+    </div>
+    <button type="button" onclick="signup();">회원가입</button>
+</form>
+
+</body>
+<script>
+    function signup() {
+        var form = document.getElementById("signup-form");
+        axios.post(`/signup`, { name: form.name.value, gender: form.gender.value, birth: form.birthdate.value }).then((res) => {
+          console.log(res.data);
+        });
+      }
+</script>
+</html>
