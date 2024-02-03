@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--xml 파일 작성법-->
+<!--namespace=매퍼 폴더 경로-->
+<mapper namespace="com.sesac.sesacspring.mapper.UserMapper">
+<!--    id=매퍼의 메소드 명 resultType=결과를 매핑할 객체의 타입-->
+    <select id="retreiveAll" resultType="com.sesac.sesacspring.domain.User">
+        SELECT user.* FROM user
+    </select>
+
+    <insert id="createUser2" parameterType="com.sesac.sesacspring.domain.User">
+        insert into user (name, nickname) values(#{name}, #{nickname})
+    </insert>
+</mapper>

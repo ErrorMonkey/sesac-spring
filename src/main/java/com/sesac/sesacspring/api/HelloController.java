@@ -1,4 +1,4 @@
-package com.sesac.sesacspring.controller;
+package com.sesac.sesacspring.api.controller;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 @Controller
 // @Controller: 해당 클래스가 Controller 의 역할을 하는 클래스라는 것을
