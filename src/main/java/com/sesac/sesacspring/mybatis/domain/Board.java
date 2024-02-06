@@ -1,4 +1,4 @@
-package com.sesac.sesacspring.domain;
+package com.sesac.sesacspring.mybatis.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,5 +12,6 @@ public class Board {
     private String title;
     private String content;
     private String writer;
+    private String registered;
     private Date date;
 }

@@ -3,8 +3,39 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.sesac.sesacspring.mapper.BoardMapper">
-    <select id="retreiveAll" resultType="com.sesac.sesacspring.domain.Board">
+<mapper namespace="com.sesac.sesacspring.mybatis.mapper.BoardMapper">
+    <select id="retreiveAll" resultType="com.sesac.sesacspring.mybatis.domain.Board">
         SELECT board.* FROM board
+    </select>
+<!--    mapper 의 getBoardAll 메소드를 사용하고, domain 폴더의 Board 클래스 형태가 결과 타입이다 알려준다 -->
+    <select id="getBoardAll" resultType="com.sesac.sesacspring.mybatis.domain.Board">
+        SELECT board.* FROM board
+    </select>
+<!--    parameterType="map" 이라 적으면 자동으로 찾을 수도 있다는 듯-->
+    <insert id="insertBoard" parameterType="com.sesac.sesacspring.mybatis.domain.Board">
+        INSERT INTO board(title, content, writer)
+        VALUES(#{title}, #{content}, #{writer})
+    </insert>
+
+    <update id="patchBoard" parameterType="com.sesac.sesacspring.mybatis.domain.Board">
+        UPDATE board SET title=#{title}, content=#{content}, writer=#{writer}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteXmlBoard" parameterType="Integer">
+        DELETE FROM board WHERE id=#{id}
+    </delete>
+
+    <select id="searchBoard" parameterType="String" resultType="com.sesac.sesacspring.mybatis.domain.Board">
+<!--        동적 쿼리 생성 -->
+<!--        조건 1. 검색어 없으면 전체 검색 ( SELECT * FROM board )-->
+<!--        조건 2. 검색어가 있으면 제목과 일치하는 것 ( where title=#{word} ) -->
+<!--        SELECT * FROM board WHERE title=#{word} -->
+        SELECT * FROM board
+        <where>
+            <if test="word != ''">
+                AND title=#{word}
+            </if>
+        </where>
     </select>
 </mapper>
