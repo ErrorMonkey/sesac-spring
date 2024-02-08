@@ -25,8 +25,7 @@ public class BoardController {
 
     @GetMapping("/all")
     public List<BoardDto> getBoard() {
-        List<BoardDto> result = boardService.getBoardAll();
-        return result;
+        return boardService.getBoardAll();
     }
 
 //    @PostMapping("/create") // /board/mybatis
@@ -38,7 +37,6 @@ public class BoardController {
         boardService.insertBoard(boardDto);
         // boardService.createBoard(boardDto.getWriter(), boardDto.getTitle(), boardDto.getContent());
     }
-
     @PatchMapping("") // /board/mybatis
     @ResponseBody
     // 템플릿 파일을 보여주는데, void 라면 현재 template 을 그대로 다시 보여준다

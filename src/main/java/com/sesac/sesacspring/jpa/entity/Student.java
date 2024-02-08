@@ -29,7 +29,7 @@ public class Student {
     @Column(columnDefinition = "TEXT")
     private String nickname;
 
-    // enum
+    // enum spring 3.1 이상부터 사용할 수 있음
     @Enumerated(EnumType.STRING)
     private LoginType type;
     public enum LoginType {
